@@ -1,0 +1,14 @@
+samples:
+  - SRX2880776
+  - SRX2880775
+  - SRX2880770
+  - SRX2880769
+  - SRX2880744
+  - SRX2880753
+  - SRX2880752
+  - SRX2880736
+  - SRX2880743
+
+input_dir: "bioinfo2025/data/"
+genome_index: "bioinfo2025/genome/"
+threads: 4
