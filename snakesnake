@@ -1,0 +1,115 @@
+configfile: "config.yaml"
+
+samples = config["samples"]
+input_dir = config["input_dir"]
+genome_index = config["genome_index"]
+gtf_annotation = config["gtf_annotation"]
+threads = config["threads"]
+
+rule all:
+    input:
+        expand("results/fastqc/{sample}_raw_fastqc.html", sample=samples),
+        expand("results/fastqc/{sample}_trimmed_fastqc.html", sample=samples),
+        expand("results/trim_galore/{sample}_val_1.fq.gz", sample=samples),
+        expand("results/trim_galore/{sample}_val_2.fq.gz", sample=samples),
+        expand("results/hisat2/{sample}.sorted.bam", sample=samples),
+        expand("results/hisat2/{sample}.sorted.bam.bai", sample=samples),
+        "results/multiqc/multiqc_report.html",
+        "results/counts/count_matrix.txt"
+
+rule fastqc_raw:
+    input:
+        lambda wildcards: [
+            f"{input_dir}/{samples[wildcards.sample]['r1']}",
+            f"{input_dir}/{samples[wildcards.sample]['r2']}"
+        ]
+    output:
+        html = "results/fastqc/{sample}_raw_fastqc.html",
+        zip  = "results/fastqc/{sample}_raw_fastqc.zip"
+    conda:
+        "envs/preprocess_rnaseq.yaml"
+    shell:
+        """
+        fastqc {input} --outdir results/fastqc
+        """
+
+rule trim_galore:
+    input:
+        r1=lambda wildcards: f"{input_dir}/{samples[wildcards.sample]['r1']}",
+        r2=lambda wildcards: f"{input_dir}/{samples[wildcards.sample]['r2']}",
+    output:
+        r1_trimmed="results/trim_galore/{sample}_val_1.fq.gz",
+        r2_trimmed="results/trim_galore/{sample}_val_2.fq.gz"
+    conda: "envs/preprocess_rnaseq.yaml"
+    threads: config["threads"]
+    shell:
+        """
+        trim_galore --paired {input.r1} {input.r2} -o results/trim_galore
+        """
+
+
+rule fastqc_trimmed:
+    input:
+        r1="results/trim_galore/{sample}_val_1.fq.gz",
+        r2="results/trim_galore/{sample}_val_2.fq.gz"
+    output:
+        html = "results/fastqc/{sample}_trimmed_fastqc.html",
+        zip  = "results/fastqc/{sample}_trimmed_fastqc.zip"
+    conda:
+        "envs/preprocess_rnaseq.yaml"
+    shell:
+        """
+        fastqc {input.r1} {input.r2} --outdir results/fastqc
+        """
+
+rule hisat2:
+    input:
+        r1_trimmed="results/trim_galore/{sample}_val_1.fq.gz",
+        r2_trimmed="results/trim_galore/{sample}_val_2.fq.gz"
+    output:
+        bam="results/hisat2/{sample}.sorted.bam",
+        bai="results/hisat2/{sample}.sorted.bam.bai"
+    params:
+        index=genome_index
+    threads: threads
+    conda:
+        "envs/preprocess_rnaseq.yaml"
+    shell:
+        """
+        hisat2 -p {threads} -x {params.index} -1 {input.r1_trimmed} -2 {input.r2_trimmed} | \
+        samtools view -bS - | \
+        samtools sort -@ {threads} -o {output.bam} -
+        samtools index {output.bam}
+        """
+
+rule featurecounts:
+    input:
+        expand("results/hisat2/{sample}.sorted.bam", sample=samples)
+    output:
+        "results/counts/count_matrix.txt"
+    params:
+        gtf=gtf_annotation
+    conda:
+        "envs/preprocess_rnaseq.yaml"
+    threads: threads
+    shell:
+        """
+        featureCounts -T {threads} -a {params.gtf} -o {output} {input}
+        """
+
+rule multiqc:
+    input:
+        expand("results/fastqc/{sample}_raw_fastqc.html", sample=samples),
+        expand("results/fastqc/{sample}_trimmed_fastqc.html", sample=samples),
+        expand("results/trim_galore/{sample}_val_1.fq.gz", sample=samples),
+        expand("results/trim_galore/{sample}_val_2.fq.gz", sample=samples),
+        expand("results/hisat2/{sample}.sorted.bam", sample=samples)
+    output:
+        "results/multiqc/multiqc_report.html"
+    conda:
+        "envs/preprocess_rnaseq.yaml"
+    shell:
+        """
+        multiqc results/ -o results/multiqc
+        """
+
