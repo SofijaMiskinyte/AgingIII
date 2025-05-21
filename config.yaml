@@ -1,14 +1,26 @@
 samples:
-  - SRX2880776
-  - SRX2880775
-  - SRX2880770
-  - SRX2880769
-  - SRX2880744
-  - SRX2880753
-  - SRX2880752
-  - SRX2880736
-  - SRX2880743
+  SRR5642544:
+    r1: "SRR5642544_1.fastq.gz"
+    r2: "SRR5642544_2.fastq.gz"
+  SRR5642545:
+    r1: "SRR5642545_1.fastq.gz"
+    r2: "SRR5642545_2.fastq.gz"
+  SRR5642553:
+    r1: "SRR5642553_1.fastq.gz"
+    r2: "SRR5642553_2.fastq.gz"
+  SRR5642554:
+    r1: "SRR5642554_1.fastq.gz"
+    r2: "SRR5642554_2.fastq.gz"
+  SRR5642555:
+    r1: "SRR5642555_1.fastq.gz"
+    r2: "SRR5642555_2.fastq.gz"
+  SRR5642561:
+    r1: "SRR5642561_1.fastq.gz"
+    r2: "SRR5642561_2.fastq.gz"
 
-input_dir: "bioinfo2025/data/"
-genome_index: "bioinfo2025/genome/"
+input_dir: "bioinfo2025/data"
+genome_index: "bioinfo2025/genome/index"
 threads: 4
+gtf_annotation: "bioinfo2025/genome/annotation.gtf"
+
+
