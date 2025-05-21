@@ -1,0 +1,867 @@
+Unlocking working directory.
+Building DAG of jobs...
+Creating conda environment envs/preprocess_rnaseq.yaml...
+Downloading and installing remote packages.
+Environment for /scratch/lustre/home/somi9918/AgingIII/envs/preprocess_rnaseq.yaml created (location: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_)
+Using shell: /usr/bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+all                   1
+fastqc_raw            6
+fastqc_trimmed        6
+featurecounts         1
+hisat2                6
+multiqc               1
+total                21
+
+Select jobs to execute...
+
+[Wed May 21 19:40:25 2025]
+rule fastqc_trimmed:
+    input: results/trim_galore/SRR5642553_1_val_1.fq.gz, results/trim_galore/SRR5642553_2_val_2.fq.gz
+    output: results/fastqc/SRR5642553_trimmed_fastqc.html, results/fastqc/SRR5642553_trimmed_fastqc.zip
+    jobid: 11
+    reason: Missing output files: results/fastqc/SRR5642553_trimmed_fastqc.html
+    wildcards: sample=SRR5642553
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:25 2025]
+rule fastqc_trimmed:
+    input: results/trim_galore/SRR5642554_1_val_1.fq.gz, results/trim_galore/SRR5642554_2_val_2.fq.gz
+    output: results/fastqc/SRR5642554_trimmed_fastqc.html, results/fastqc/SRR5642554_trimmed_fastqc.zip
+    jobid: 13
+    reason: Missing output files: results/fastqc/SRR5642554_trimmed_fastqc.html
+    wildcards: sample=SRR5642554
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:25 2025]
+rule fastqc_raw:
+    input: bioinfo2025/data/SRR5642544_1.fastq.gz, bioinfo2025/data/SRR5642544_2.fastq.gz
+    output: results/fastqc/SRR5642544_raw_fastqc.html, results/fastqc/SRR5642544_raw_fastqc.zip
+    jobid: 1
+    reason: Missing output files: results/fastqc/SRR5642544_raw_fastqc.html
+    wildcards: sample=SRR5642544
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:25 2025]
+rule hisat2:
+    input: results/trim_galore/SRR5642544_1_val_1.fq.gz, results/trim_galore/SRR5642544_2_val_2.fq.gz
+    output: results/hisat2/SRR5642544.sorted.bam, results/hisat2/SRR5642544.sorted.bam.bai
+    jobid: 19
+    reason: Missing output files: results/hisat2/SRR5642544.sorted.bam, results/hisat2/SRR5642544.sorted.bam.bai
+    wildcards: sample=SRR5642544
+    threads: 8
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:25 2025]
+rule fastqc_raw:
+    input: bioinfo2025/data/SRR5642554_1.fastq.gz, bioinfo2025/data/SRR5642554_2.fastq.gz
+    output: results/fastqc/SRR5642554_raw_fastqc.html, results/fastqc/SRR5642554_raw_fastqc.zip
+    jobid: 4
+    reason: Missing output files: results/fastqc/SRR5642554_raw_fastqc.html
+    wildcards: sample=SRR5642554
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:25 2025]
+rule fastqc_raw:
+    input: bioinfo2025/data/SRR5642545_1.fastq.gz, bioinfo2025/data/SRR5642545_2.fastq.gz
+    output: results/fastqc/SRR5642545_raw_fastqc.html, results/fastqc/SRR5642545_raw_fastqc.zip
+    jobid: 2
+    reason: Missing output files: results/fastqc/SRR5642545_raw_fastqc.html
+    wildcards: sample=SRR5642545
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:25 2025]
+rule fastqc_raw:
+    input: bioinfo2025/data/SRR5642553_1.fastq.gz, bioinfo2025/data/SRR5642553_2.fastq.gz
+    output: results/fastqc/SRR5642553_raw_fastqc.html, results/fastqc/SRR5642553_raw_fastqc.zip
+    jobid: 3
+    reason: Missing output files: results/fastqc/SRR5642553_raw_fastqc.html
+    wildcards: sample=SRR5642553
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:25 2025]
+rule hisat2:
+    input: results/trim_galore/SRR5642545_1_val_1.fq.gz, results/trim_galore/SRR5642545_2_val_2.fq.gz
+    output: results/hisat2/SRR5642545.sorted.bam, results/hisat2/SRR5642545.sorted.bam.bai
+    jobid: 20
+    reason: Missing output files: results/hisat2/SRR5642545.sorted.bam, results/hisat2/SRR5642545.sorted.bam.bai
+    wildcards: sample=SRR5642545
+    threads: 8
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:25 2025]
+rule fastqc_trimmed:
+    input: results/trim_galore/SRR5642544_1_val_1.fq.gz, results/trim_galore/SRR5642544_2_val_2.fq.gz
+    output: results/fastqc/SRR5642544_trimmed_fastqc.html, results/fastqc/SRR5642544_trimmed_fastqc.zip
+    jobid: 7
+    reason: Missing output files: results/fastqc/SRR5642544_trimmed_fastqc.html
+    wildcards: sample=SRR5642544
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:25 2025]
+rule fastqc_trimmed:
+    input: results/trim_galore/SRR5642545_1_val_1.fq.gz, results/trim_galore/SRR5642545_2_val_2.fq.gz
+    output: results/fastqc/SRR5642545_trimmed_fastqc.html, results/fastqc/SRR5642545_trimmed_fastqc.zip
+    jobid: 9
+    reason: Missing output files: results/fastqc/SRR5642545_trimmed_fastqc.html
+    wildcards: sample=SRR5642545
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+Started analysis of SRR5642554_1_val_1.fq.gz
+Started analysis of SRR5642553_1_val_1.fq.gz
+Started analysis of SRR5642554_1.fastq.gz
+Started analysis of SRR5642544_1_val_1.fq.gz
+Started analysis of SRR5642553_1.fastq.gz
+Started analysis of SRR5642545_1_val_1.fq.gz
+Started analysis of SRR5642544_1.fastq.gz
+Started analysis of SRR5642545_1.fastq.gz
+(ERR): hisat2-align exited with value 141
+(ERR): hisat2-align exited with value 141
+[Wed May 21 19:40:29 2025]
+Error in rule hisat2:
+    jobid: 19
+    input: results/trim_galore/SRR5642544_1_val_1.fq.gz, results/trim_galore/SRR5642544_2_val_2.fq.gz
+    output: results/hisat2/SRR5642544.sorted.bam, results/hisat2/SRR5642544.sorted.bam.bai
+    conda-env: /scratch/lustre/home/somi9918/AgingIII/.snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+    shell:
+        
+        hisat2 -p 8 -x bioinfo2025/genome/index -1 results/trim_galore/SRR5642544_1_val_1.fq.gz -2 results/trim_galore/SRR5642544_2_val_2.fq.gz |         samtools view -bS - |         samtools sort -@ 8 -o results/hisat2/SRR5642544.sorted.bam -
+        samtools index results/hisat2/SRR5642544.sorted.bam
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Select jobs to execute...
+
+[Wed May 21 19:40:29 2025]
+[Wed May 21 19:40:29 2025]
+Error in rule hisat2:
+    jobid: 20
+    input: results/trim_galore/SRR5642545_1_val_1.fq.gz, results/trim_galore/SRR5642545_2_val_2.fq.gz
+    output: results/hisat2/SRR5642545.sorted.bam, results/hisat2/SRR5642545.sorted.bam.bai
+    conda-env: /scratch/lustre/home/somi9918/AgingIII/.snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+    shell:
+        
+        hisat2 -p 8 -x bioinfo2025/genome/index -1 results/trim_galore/SRR5642545_1_val_1.fq.gz -2 results/trim_galore/SRR5642545_2_val_2.fq.gz |         samtools view -bS - |         samtools sort -@ 8 -o results/hisat2/SRR5642545.sorted.bam -
+        samtools index results/hisat2/SRR5642545.sorted.bam
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+rule hisat2:
+    input: results/trim_galore/SRR5642554_1_val_1.fq.gz, results/trim_galore/SRR5642554_2_val_2.fq.gz
+    output: results/hisat2/SRR5642554.sorted.bam, results/hisat2/SRR5642554.sorted.bam.bai
+    jobid: 22
+    reason: Missing output files: results/hisat2/SRR5642554.sorted.bam, results/hisat2/SRR5642554.sorted.bam.bai
+    wildcards: sample=SRR5642554
+    threads: 8
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Approx 5% complete for SRR5642553_1_val_1.fq.gz
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+Select jobs to execute...
+
+[Wed May 21 19:40:29 2025]
+rule hisat2:
+    input: results/trim_galore/SRR5642553_1_val_1.fq.gz, results/trim_galore/SRR5642553_2_val_2.fq.gz
+    output: results/hisat2/SRR5642553.sorted.bam, results/hisat2/SRR5642553.sorted.bam.bai
+    jobid: 21
+    reason: Missing output files: results/hisat2/SRR5642553.sorted.bam, results/hisat2/SRR5642553.sorted.bam.bai
+    wildcards: sample=SRR5642553
+    threads: 8
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+Approx 5% complete for SRR5642553_1.fastq.gz
+Approx 5% complete for SRR5642554_1_val_1.fq.gz
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+Approx 5% complete for SRR5642554_1.fastq.gz
+Approx 5% complete for SRR5642544_1_val_1.fq.gz
+Approx 5% complete for SRR5642544_1.fastq.gz
+Approx 5% complete for SRR5642545_1_val_1.fq.gz
+Approx 5% complete for SRR5642545_1.fastq.gz
+Approx 10% complete for SRR5642553_1_val_1.fq.gz
+Approx 10% complete for SRR5642553_1.fastq.gz
+Approx 10% complete for SRR5642554_1_val_1.fq.gz
+(ERR): hisat2-align exited with value 141
+[Wed May 21 19:40:33 2025]
+Error in rule hisat2:
+    jobid: 22
+    input: results/trim_galore/SRR5642554_1_val_1.fq.gz, results/trim_galore/SRR5642554_2_val_2.fq.gz
+    output: results/hisat2/SRR5642554.sorted.bam, results/hisat2/SRR5642554.sorted.bam.bai
+    conda-env: /scratch/lustre/home/somi9918/AgingIII/.snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+    shell:
+        
+        hisat2 -p 8 -x bioinfo2025/genome/index -1 results/trim_galore/SRR5642554_1_val_1.fq.gz -2 results/trim_galore/SRR5642554_2_val_2.fq.gz |         samtools view -bS - |         samtools sort -@ 8 -o results/hisat2/SRR5642554.sorted.bam -
+        samtools index results/hisat2/SRR5642554.sorted.bam
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Select jobs to execute...
+
+[Wed May 21 19:40:33 2025]
+rule fastqc_raw:
+    input: bioinfo2025/data/SRR5642555_1.fastq.gz, bioinfo2025/data/SRR5642555_2.fastq.gz
+    output: results/fastqc/SRR5642555_raw_fastqc.html, results/fastqc/SRR5642555_raw_fastqc.zip
+    jobid: 5
+    reason: Missing output files: results/fastqc/SRR5642555_raw_fastqc.html
+    wildcards: sample=SRR5642555
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:33 2025]
+rule fastqc_raw:
+    input: bioinfo2025/data/SRR5642561_1.fastq.gz, bioinfo2025/data/SRR5642561_2.fastq.gz
+    output: results/fastqc/SRR5642561_raw_fastqc.html, results/fastqc/SRR5642561_raw_fastqc.zip
+    jobid: 6
+    reason: Missing output files: results/fastqc/SRR5642561_raw_fastqc.html
+    wildcards: sample=SRR5642561
+    resources: tmpdir=/tmp/slurm-somi9918-175098(ERR): hisat2-align exited with value 141
+
+
+[Wed May 21 19:40:33 2025]
+Error in rule hisat2:
+    jobid: 21
+    input: results/trim_galore/SRR5642553_1_val_1.fq.gz, results/trim_galore/SRR5642553_2_val_2.fq.gz
+    output: results/hisat2/SRR5642553.sorted.bam, results/hisat2/SRR5642553.sorted.bam.bai
+    conda-env: /scratch/lustre/home/somi9918/AgingIII/.snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+    shell:
+        
+        hisat2 -p 8 -x bioinfo2025/genome/index -1 results/trim_galore/SRR5642553_1_val_1.fq.gz -2 results/trim_galore/SRR5642553_2_val_2.fq.gz |         samtools view -bS - |         samtools sort -@ 8 -o results/hisat2/SRR5642553.sorted.bam -
+        samtools index results/hisat2/SRR5642553.sorted.bam
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:33 2025]
+rule fastqc_trimmed:
+    input: results/trim_galore/SRR5642555_1_val_1.fq.gz, results/trim_galore/SRR5642555_2_val_2.fq.gz
+    output: results/fastqc/SRR5642555_trimmed_fastqc.html, results/fastqc/SRR5642555_trimmed_fastqc.zip
+    jobid: 15
+    reason: Missing output files: results/fastqc/SRR5642555_trimmed_fastqc.html
+    wildcards: sample=SRR5642555
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Approx 10% complete for SRR5642554_1.fastq.gz
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+
+[Wed May 21 19:40:33 2025]
+rule fastqc_trimmed:
+    input: results/trim_galore/SRR5642561_1_val_1.fq.gz, results/trim_galore/SRR5642561_2_val_2.fq.gz
+    output: results/fastqc/SRR5642561_trimmed_fastqc.html, results/fastqc/SRR5642561_trimmed_fastqc.zip
+    jobid: 17
+    reason: Missing output files: results/fastqc/SRR5642561_trimmed_fastqc.html
+    wildcards: sample=SRR5642561
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+Select jobs to execute...
+
+[Wed May 21 19:40:33 2025]
+rule hisat2:
+    input: results/trim_galore/SRR5642555_1_val_1.fq.gz, results/trim_galore/SRR5642555_2_val_2.fq.gz
+    output: results/hisat2/SRR5642555.sorted.bam, results/hisat2/SRR5642555.sorted.bam.bai
+    jobid: 23
+    reason: Missing output files: results/hisat2/SRR5642555.sorted.bam.bai, results/hisat2/SRR5642555.sorted.bam
+    wildcards: sample=SRR5642555
+    threads: 8
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+Approx 10% complete for SRR5642544_1_val_1.fq.gz
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+Approx 10% complete for SRR5642544_1.fastq.gz
+Started analysis of SRR5642555_1.fastq.gz
+Started analysis of SRR5642561_1_val_1.fq.gz
+Started analysis of SRR5642561_1.fastq.gz
+Approx 10% complete for SRR5642545_1_val_1.fq.gz
+Approx 10% complete for SRR5642545_1.fastq.gz
+Approx 15% complete for SRR5642553_1_val_1.fq.gz
+Started analysis of SRR5642555_1_val_1.fq.gz
+Approx 15% complete for SRR5642553_1.fastq.gz
+Approx 5% complete for SRR5642561_1_val_1.fq.gz
+Approx 15% complete for SRR5642554_1_val_1.fq.gz
+Approx 5% complete for SRR5642561_1.fastq.gz
+Approx 5% complete for SRR5642555_1.fastq.gz
+Approx 15% complete for SRR5642554_1.fastq.gz
+(ERR): hisat2-align exited with value 141
+[Wed May 21 19:40:36 2025]
+Error in rule hisat2:
+    jobid: 23
+    input: results/trim_galore/SRR5642555_1_val_1.fq.gz, results/trim_galore/SRR5642555_2_val_2.fq.gz
+    output: results/hisat2/SRR5642555.sorted.bam, results/hisat2/SRR5642555.sorted.bam.bai
+    conda-env: /scratch/lustre/home/somi9918/AgingIII/.snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+    shell:
+        
+        hisat2 -p 8 -x bioinfo2025/genome/index -1 results/trim_galore/SRR5642555_1_val_1.fq.gz -2 results/trim_galore/SRR5642555_2_val_2.fq.gz |         samtools view -bS - |         samtools sort -@ 8 -o results/hisat2/SRR5642555.sorted.bam -
+        samtools index results/hisat2/SRR5642555.sorted.bam
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Select jobs to execute...
+
+[Wed May 21 19:40:36 2025]
+rule hisat2:
+    input: results/trim_galore/SRR5642561_1_val_1.fq.gz, results/trim_galore/SRR5642561_2_val_2.fq.gz
+    output: results/hisat2/SRR5642561.sorted.bam, results/hisat2/SRR5642561.sorted.bam.bai
+    jobid: 24
+    reason: Missing output files: results/hisat2/SRR5642561.sorted.bam.bai, results/hisat2/SRR5642561.sorted.bam
+    wildcards: sample=SRR5642561
+    threads: 8
+    resources: tmpdir=/tmp/slurm-somi9918-175098
+
+Activating conda environment: .snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+Approx 5% complete for SRR5642555_1_val_1.fq.gz
+Approx 15% complete for SRR5642544_1_val_1.fq.gz
+Approx 20% complete for SRR5642553_1_val_1.fq.gz
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+samtools: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+Approx 10% complete for SRR5642561_1_val_1.fq.gz
+Approx 15% complete for SRR5642544_1.fastq.gz
+Approx 10% complete for SRR5642561_1.fastq.gz
+Approx 15% complete for SRR5642545_1_val_1.fq.gz
+Approx 10% complete for SRR5642555_1.fastq.gz
+Approx 20% complete for SRR5642553_1.fastq.gz
+Approx 15% complete for SRR5642545_1.fastq.gz
+Approx 10% complete for SRR5642555_1_val_1.fq.gz
+Approx 15% complete for SRR5642561_1_val_1.fq.gz
+Approx 15% complete for SRR5642561_1.fastq.gz
+Approx 20% complete for SRR5642554_1_val_1.fq.gz
+Approx 15% complete for SRR5642555_1.fastq.gz
+Approx 20% complete for SRR5642554_1.fastq.gz
+Approx 25% complete for SRR5642553_1_val_1.fq.gz
+Approx 20% complete for SRR5642561_1_val_1.fq.gz
+Approx 20% complete for SRR5642561_1.fastq.gz
+Approx 15% complete for SRR5642555_1_val_1.fq.gz
+(ERR): hisat2-align exited with value 141
+[Wed May 21 19:40:39 2025]
+Error in rule hisat2:
+    jobid: 24
+    input: results/trim_galore/SRR5642561_1_val_1.fq.gz, results/trim_galore/SRR5642561_2_val_2.fq.gz
+    output: results/hisat2/SRR5642561.sorted.bam, results/hisat2/SRR5642561.sorted.bam.bai
+    conda-env: /scratch/lustre/home/somi9918/AgingIII/.snakemake/conda/72fdec78bd981995597a3a2bb0158977_
+    shell:
+        
+        hisat2 -p 8 -x bioinfo2025/genome/index -1 results/trim_galore/SRR5642561_1_val_1.fq.gz -2 results/trim_galore/SRR5642561_2_val_2.fq.gz |         samtools view -bS - |         samtools sort -@ 8 -o results/hisat2/SRR5642561.sorted.bam -
+        samtools index results/hisat2/SRR5642561.sorted.bam
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Approx 20% complete for SRR5642544_1_val_1.fq.gz
+Approx 25% complete for SRR5642553_1.fastq.gz
+Approx 20% complete for SRR5642544_1.fastq.gz
+Approx 25% complete for SRR5642561_1_val_1.fq.gz
+Approx 20% complete for SRR5642555_1.fastq.gz
+Approx 25% complete for SRR5642561_1.fastq.gz
+Approx 20% complete for SRR5642545_1_val_1.fq.gz
+Approx 20% complete for SRR5642555_1_val_1.fq.gz
+Approx 20% complete for SRR5642545_1.fastq.gz
+Approx 25% complete for SRR5642554_1_val_1.fq.gz
+Approx 30% complete for SRR5642553_1_val_1.fq.gz
+Approx 30% complete for SRR5642561_1_val_1.fq.gz
+Approx 30% complete for SRR5642561_1.fastq.gz
+Approx 25% complete for SRR5642554_1.fastq.gz
+Approx 25% complete for SRR5642555_1.fastq.gz
+Approx 25% complete for SRR5642555_1_val_1.fq.gz
+Approx 30% complete for SRR5642553_1.fastq.gz
+Approx 25% complete for SRR5642544_1_val_1.fq.gz
+Approx 35% complete for SRR5642561_1_val_1.fq.gz
+Approx 35% complete for SRR5642561_1.fastq.gz
+Approx 25% complete for SRR5642544_1.fastq.gz
+Approx 30% complete for SRR5642555_1.fastq.gz
+Approx 40% complete for SRR5642561_1_val_1.fq.gz
+Approx 30% complete for SRR5642554_1_val_1.fq.gz
+Approx 35% complete for SRR5642553_1_val_1.fq.gz
+Approx 30% complete for SRR5642555_1_val_1.fq.gz
+Approx 40% complete for SRR5642561_1.fastq.gz
+Approx 25% complete for SRR5642545_1_val_1.fq.gz
+Approx 25% complete for SRR5642545_1.fastq.gz
+Approx 45% complete for SRR5642561_1_val_1.fq.gz
+Approx 30% complete for SRR5642554_1.fastq.gz
+Approx 35% complete for SRR5642553_1.fastq.gz
+Approx 35% complete for SRR5642555_1.fastq.gz
+Approx 45% complete for SRR5642561_1.fastq.gz
+Approx 35% complete for SRR5642555_1_val_1.fq.gz
+Approx 30% complete for SRR5642544_1_val_1.fq.gz
+Approx 50% complete for SRR5642561_1_val_1.fq.gz
+Approx 40% complete for SRR5642553_1_val_1.fq.gz
+Approx 50% complete for SRR5642561_1.fastq.gz
+Approx 35% complete for SRR5642554_1_val_1.fq.gz
+Approx 40% complete for SRR5642555_1.fastq.gz
+Approx 30% complete for SRR5642544_1.fastq.gz
+Approx 40% complete for SRR5642555_1_val_1.fq.gz
+Approx 55% complete for SRR5642561_1_val_1.fq.gz
+Approx 30% complete for SRR5642545_1_val_1.fq.gz
+Approx 40% complete for SRR5642553_1.fastq.gz
+Approx 55% complete for SRR5642561_1.fastq.gz
+Approx 35% complete for SRR5642554_1.fastq.gz
+Approx 30% complete for SRR5642545_1.fastq.gz
+Approx 60% complete for SRR5642561_1_val_1.fq.gz
+Approx 45% complete for SRR5642555_1.fastq.gz
+Approx 45% complete for SRR5642555_1_val_1.fq.gz
+Approx 45% complete for SRR5642553_1_val_1.fq.gz
+Approx 35% complete for SRR5642544_1_val_1.fq.gz
+Approx 60% complete for SRR5642561_1.fastq.gz
+Approx 65% complete for SRR5642561_1_val_1.fq.gz
+Approx 40% complete for SRR5642554_1_val_1.fq.gz
+Approx 50% complete for SRR5642555_1.fastq.gz
+Approx 50% complete for SRR5642555_1_val_1.fq.gz
+Approx 65% complete for SRR5642561_1.fastq.gz
+Approx 45% complete for SRR5642553_1.fastq.gz
+Approx 70% complete for SRR5642561_1_val_1.fq.gz
+Approx 35% complete for SRR5642544_1.fastq.gz
+Approx 35% complete for SRR5642545_1_val_1.fq.gz
+Approx 40% complete for SRR5642554_1.fastq.gz
+Approx 50% complete for SRR5642553_1_val_1.fq.gz
+Approx 55% complete for SRR5642555_1.fastq.gz
+Approx 75% complete for SRR5642561_1_val_1.fq.gz
+Approx 70% complete for SRR5642561_1.fastq.gz
+Approx 55% complete for SRR5642555_1_val_1.fq.gz
+Approx 35% complete for SRR5642545_1.fastq.gz
+Approx 40% complete for SRR5642544_1_val_1.fq.gz
+Approx 45% complete for SRR5642554_1_val_1.fq.gz
+Approx 80% complete for SRR5642561_1_val_1.fq.gz
+Approx 75% complete for SRR5642561_1.fastq.gz
+Approx 50% complete for SRR5642553_1.fastq.gz
+Approx 60% complete for SRR5642555_1.fastq.gz
+Approx 60% complete for SRR5642555_1_val_1.fq.gz
+Approx 85% complete for SRR5642561_1_val_1.fq.gz
+Approx 40% complete for SRR5642544_1.fastq.gz
+Approx 55% complete for SRR5642553_1_val_1.fq.gz
+Approx 80% complete for SRR5642561_1.fastq.gz
+Approx 45% complete for SRR5642554_1.fastq.gz
+Approx 40% complete for SRR5642545_1_val_1.fq.gz
+Approx 65% complete for SRR5642555_1_val_1.fq.gz
+Approx 65% complete for SRR5642555_1.fastq.gz
+Approx 90% complete for SRR5642561_1_val_1.fq.gz
+Approx 85% complete for SRR5642561_1.fastq.gz
+Approx 45% complete for SRR5642544_1_val_1.fq.gz
+Approx 40% complete for SRR5642545_1.fastq.gz
+Approx 50% complete for SRR5642554_1_val_1.fq.gz
+Approx 55% complete for SRR5642553_1.fastq.gz
+Approx 95% complete for SRR5642561_1_val_1.fq.gz
+Approx 70% complete for SRR5642555_1_val_1.fq.gz
+Approx 70% complete for SRR5642555_1.fastq.gz
+Approx 60% complete for SRR5642553_1_val_1.fq.gz
+Approx 90% complete for SRR5642561_1.fastq.gz
+Approx 45% complete for SRR5642544_1.fastq.gz
+Approx 50% complete for SRR5642554_1.fastq.gz
+Approx 95% complete for SRR5642561_1.fastq.gz
+Approx 75% complete for SRR5642555_1_val_1.fq.gz
+Approx 75% complete for SRR5642555_1.fastq.gz
+Approx 45% complete for SRR5642545_1_val_1.fq.gz
+Approx 55% complete for SRR5642554_1_val_1.fq.gz
+Approx 60% complete for SRR5642553_1.fastq.gz
+Approx 50% complete for SRR5642544_1_val_1.fq.gz
+Approx 65% complete for SRR5642553_1_val_1.fq.gz
+Approx 45% complete for SRR5642545_1.fastq.gz
+Approx 80% complete for SRR5642555_1_val_1.fq.gz
+Started analysis of SRR5642561_2_val_2.fq.gz
+Approx 80% complete for SRR5642555_1.fastq.gz
+Approx 55% complete for SRR5642554_1.fastq.gz
+Started analysis of SRR5642561_2.fastq.gz
+Approx 50% complete for SRR5642544_1.fastq.gz
+Approx 85% complete for SRR5642555_1_val_1.fq.gz
+Approx 5% complete for SRR5642561_2_val_2.fq.gz
+Approx 65% complete for SRR5642553_1.fastq.gz
+Approx 85% complete for SRR5642555_1.fastq.gz
+Approx 60% complete for SRR5642554_1_val_1.fq.gz
+Approx 70% complete for SRR5642553_1_val_1.fq.gz
+Approx 50% complete for SRR5642545_1_val_1.fq.gz
+Approx 55% complete for SRR5642544_1_val_1.fq.gz
+Approx 10% complete for SRR5642561_2_val_2.fq.gz
+Approx 5% complete for SRR5642561_2.fastq.gz
+Approx 90% complete for SRR5642555_1_val_1.fq.gz
+Approx 90% complete for SRR5642555_1.fastq.gz
+Approx 50% complete for SRR5642545_1.fastq.gz
+Approx 15% complete for SRR5642561_2_val_2.fq.gz
+Approx 10% complete for SRR5642561_2.fastq.gz
+Approx 60% complete for SRR5642554_1.fastq.gz
+Approx 70% complete for SRR5642553_1.fastq.gz
+Approx 75% complete for SRR5642553_1_val_1.fq.gz
+Approx 95% complete for SRR5642555_1_val_1.fq.gz
+Approx 55% complete for SRR5642544_1.fastq.gz
+Approx 65% complete for SRR5642554_1_val_1.fq.gz
+Approx 95% complete for SRR5642555_1.fastq.gz
+Approx 20% complete for SRR5642561_2_val_2.fq.gz
+Approx 55% complete for SRR5642545_1_val_1.fq.gz
+Approx 60% complete for SRR5642544_1_val_1.fq.gz
+Approx 15% complete for SRR5642561_2.fastq.gz
+Approx 25% complete for SRR5642561_2_val_2.fq.gz
+Approx 55% complete for SRR5642545_1.fastq.gz
+Approx 20% complete for SRR5642561_2.fastq.gz
+Approx 75% complete for SRR5642553_1.fastq.gz
+Approx 80% complete for SRR5642553_1_val_1.fq.gz
+Approx 30% complete for SRR5642561_2_val_2.fq.gz
+Approx 65% complete for SRR5642554_1.fastq.gz
+Approx 70% complete for SRR5642554_1_val_1.fq.gz
+Started analysis of SRR5642555_2_val_2.fq.gz
+Started analysis of SRR5642555_2.fastq.gz
+Approx 60% complete for SRR5642544_1.fastq.gz
+Approx 35% complete for SRR5642561_2_val_2.fq.gz
+Approx 25% complete for SRR5642561_2.fastq.gz
+Approx 65% complete for SRR5642544_1_val_1.fq.gz
+Approx 60% complete for SRR5642545_1_val_1.fq.gz
+Approx 85% complete for SRR5642553_1_val_1.fq.gz
+Approx 40% complete for SRR5642561_2_val_2.fq.gz
+Approx 80% complete for SRR5642553_1.fastq.gz
+Approx 5% complete for SRR5642555_2_val_2.fq.gz
+Approx 30% complete for SRR5642561_2.fastq.gz
+Approx 5% complete for SRR5642555_2.fastq.gz
+Approx 70% complete for SRR5642554_1.fastq.gz
+Approx 60% complete for SRR5642545_1.fastq.gz
+Approx 75% complete for SRR5642554_1_val_1.fq.gz
+Approx 45% complete for SRR5642561_2_val_2.fq.gz
+Approx 35% complete for SRR5642561_2.fastq.gz
+Approx 10% complete for SRR5642555_2_val_2.fq.gz
+Approx 65% complete for SRR5642544_1.fastq.gz
+Approx 50% complete for SRR5642561_2_val_2.fq.gz
+Approx 90% complete for SRR5642553_1_val_1.fq.gz
+Approx 70% complete for SRR5642544_1_val_1.fq.gz
+Approx 10% complete for SRR5642555_2.fastq.gz
+Approx 85% complete for SRR5642553_1.fastq.gz
+Approx 40% complete for SRR5642561_2.fastq.gz
+Approx 65% complete for SRR5642545_1_val_1.fq.gz
+Approx 55% complete for SRR5642561_2_val_2.fq.gz
+Approx 15% complete for SRR5642555_2_val_2.fq.gz
+Approx 80% complete for SRR5642554_1_val_1.fq.gz
+Approx 75% complete for SRR5642554_1.fastq.gz
+Approx 45% complete for SRR5642561_2.fastq.gz
+Approx 15% complete for SRR5642555_2.fastq.gz
+Approx 60% complete for SRR5642561_2_val_2.fq.gz
+Approx 65% complete for SRR5642545_1.fastq.gz
+Approx 95% complete for SRR5642553_1_val_1.fq.gz
+Approx 20% complete for SRR5642555_2_val_2.fq.gz
+Approx 90% complete for SRR5642553_1.fastq.gz
+Approx 50% complete for SRR5642561_2.fastq.gz
+Approx 70% complete for SRR5642544_1.fastq.gz
+Approx 65% complete for SRR5642561_2_val_2.fq.gz
+Approx 75% complete for SRR5642544_1_val_1.fq.gz
+Approx 20% complete for SRR5642555_2.fastq.gz
+Approx 70% complete for SRR5642545_1_val_1.fq.gz
+Approx 55% complete for SRR5642561_2.fastq.gz
+Approx 70% complete for SRR5642561_2_val_2.fq.gz
+Approx 25% complete for SRR5642555_2_val_2.fq.gz
+Approx 85% complete for SRR5642554_1_val_1.fq.gz
+Approx 80% complete for SRR5642554_1.fastq.gz
+Approx 25% complete for SRR5642555_2.fastq.gz
+Approx 75% complete for SRR5642561_2_val_2.fq.gz
+Approx 60% complete for SRR5642561_2.fastq.gz
+Approx 95% complete for SRR5642553_1.fastq.gz
+Approx 70% complete for SRR5642545_1.fastq.gz
+Approx 30% complete for SRR5642555_2_val_2.fq.gz
+Approx 75% complete for SRR5642544_1.fastq.gz
+Approx 80% complete for SRR5642561_2_val_2.fq.gz
+Approx 80% complete for SRR5642544_1_val_1.fq.gz
+Started analysis of SRR5642553_2_val_2.fq.gz
+Approx 65% complete for SRR5642561_2.fastq.gz
+Approx 30% complete for SRR5642555_2.fastq.gz
+Approx 90% complete for SRR5642554_1_val_1.fq.gz
+Approx 75% complete for SRR5642545_1_val_1.fq.gz
+Approx 85% complete for SRR5642561_2_val_2.fq.gz
+Approx 85% complete for SRR5642554_1.fastq.gz
+Approx 35% complete for SRR5642555_2_val_2.fq.gz
+Approx 70% complete for SRR5642561_2.fastq.gz
+Approx 35% complete for SRR5642555_2.fastq.gz
+Approx 90% complete for SRR5642561_2_val_2.fq.gz
+Approx 75% complete for SRR5642545_1.fastq.gz
+Approx 40% complete for SRR5642555_2_val_2.fq.gz
+Approx 75% complete for SRR5642561_2.fastq.gz
+Approx 5% complete for SRR5642553_2_val_2.fq.gz
+Approx 80% complete for SRR5642544_1.fastq.gz
+Approx 95% complete for SRR5642561_2_val_2.fq.gz
+Approx 85% complete for SRR5642544_1_val_1.fq.gz
+Started analysis of SRR5642553_2.fastq.gz
+Approx 95% complete for SRR5642554_1_val_1.fq.gz
+Approx 40% complete for SRR5642555_2.fastq.gz
+Approx 80% complete for SRR5642545_1_val_1.fq.gz
+Approx 90% complete for SRR5642554_1.fastq.gz
+Approx 80% complete for SRR5642561_2.fastq.gz
+Approx 45% complete for SRR5642555_2_val_2.fq.gz
+Approx 85% complete for SRR5642561_2.fastq.gz
+Waiting at most 600 seconds for missing files.
+Approx 10% complete for SRR5642553_2_val_2.fq.gz
+Approx 45% complete for SRR5642555_2.fastq.gz
+Approx 50% complete for SRR5642555_2_val_2.fq.gz
+Approx 80% complete for SRR5642545_1.fastq.gz
+Approx 90% complete for SRR5642544_1_val_1.fq.gz
+Approx 5% complete for SRR5642553_2.fastq.gz
+Approx 85% complete for SRR5642544_1.fastq.gz
+Approx 90% complete for SRR5642561_2.fastq.gz
+Approx 95% complete for SRR5642554_1.fastq.gz
+Approx 50% complete for SRR5642555_2.fastq.gz
+Approx 55% complete for SRR5642555_2_val_2.fq.gz
+Approx 85% complete for SRR5642545_1_val_1.fq.gz
+Approx 95% complete for SRR5642561_2.fastq.gz
+Started analysis of SRR5642554_2_val_2.fq.gz
+Approx 15% complete for SRR5642553_2_val_2.fq.gz
+Approx 55% complete for SRR5642555_2.fastq.gz
+Approx 60% complete for SRR5642555_2_val_2.fq.gz
+Approx 95% complete for SRR5642544_1_val_1.fq.gz
+Approx 10% complete for SRR5642553_2.fastq.gz
+Approx 90% complete for SRR5642544_1.fastq.gz
+Approx 85% complete for SRR5642545_1.fastq.gz
+Approx 60% complete for SRR5642555_2.fastq.gz
+Approx 65% complete for SRR5642555_2_val_2.fq.gz
+Approx 90% complete for SRR5642545_1_val_1.fq.gz
+Approx 20% complete for SRR5642553_2_val_2.fq.gz
+Approx 5% complete for SRR5642554_2_val_2.fq.gz
+Started analysis of SRR5642554_2.fastq.gz
+Approx 70% complete for SRR5642555_2_val_2.fq.gz
+Approx 65% complete for SRR5642555_2.fastq.gz
+Approx 15% complete for SRR5642553_2.fastq.gz
+Approx 95% complete for SRR5642544_1.fastq.gz
+Approx 90% complete for SRR5642545_1.fastq.gz
+Approx 25% complete for SRR5642553_2_val_2.fq.gz
+Approx 75% complete for SRR5642555_2_val_2.fq.gz
+Approx 70% complete for SRR5642555_2.fastq.gz
+Approx 95% complete for SRR5642545_1_val_1.fq.gz
+Approx 10% complete for SRR5642554_2_val_2.fq.gz
+Started analysis of SRR5642544_2_val_2.fq.gz
+Approx 80% complete for SRR5642555_2_val_2.fq.gz
+Approx 5% complete for SRR5642554_2.fastq.gz
+Approx 20% complete for SRR5642553_2.fastq.gz
+Approx 75% complete for SRR5642555_2.fastq.gz
+Approx 30% complete for SRR5642553_2_val_2.fq.gz
+Approx 85% complete for SRR5642555_2_val_2.fq.gz
+Approx 95% complete for SRR5642545_1.fastq.gz
+Approx 80% complete for SRR5642555_2.fastq.gz
+Approx 15% complete for SRR5642554_2_val_2.fq.gz
+Approx 5% complete for SRR5642544_2_val_2.fq.gz
+Approx 90% complete for SRR5642555_2_val_2.fq.gz
+Started analysis of SRR5642544_2.fastq.gz
+Approx 35% complete for SRR5642553_2_val_2.fq.gz
+Approx 25% complete for SRR5642553_2.fastq.gz
+Approx 10% complete for SRR5642554_2.fastq.gz
+Approx 85% complete for SRR5642555_2.fastq.gz
+Started analysis of SRR5642545_2_val_2.fq.gz
+Approx 95% complete for SRR5642555_2_val_2.fq.gz
+Approx 20% complete for SRR5642554_2_val_2.fq.gz
+Approx 90% complete for SRR5642555_2.fastq.gz
+Approx 40% complete for SRR5642553_2_val_2.fq.gz
+Approx 30% complete for SRR5642553_2.fastq.gz
+Approx 10% complete for SRR5642544_2_val_2.fq.gz
+Approx 15% complete for SRR5642554_2.fastq.gz
+Started analysis of SRR5642545_2.fastq.gz
+Approx 5% complete for SRR5642544_2.fastq.gz
+Approx 95% complete for SRR5642555_2.fastq.gz
+Approx 5% complete for SRR5642545_2_val_2.fq.gz
+Approx 45% complete for SRR5642553_2_val_2.fq.gz
+Approx 25% complete for SRR5642554_2_val_2.fq.gz
+Approx 35% complete for SRR5642553_2.fastq.gz
+Approx 15% complete for SRR5642544_2_val_2.fq.gz
+Approx 20% complete for SRR5642554_2.fastq.gz
+Approx 10% complete for SRR5642544_2.fastq.gz
+Approx 50% complete for SRR5642553_2_val_2.fq.gz
+Approx 30% complete for SRR5642554_2_val_2.fq.gz
+Approx 5% complete for SRR5642545_2.fastq.gz
+Approx 40% complete for SRR5642553_2.fastq.gz
+Approx 10% complete for SRR5642545_2_val_2.fq.gz
+Approx 20% complete for SRR5642544_2_val_2.fq.gz
+Approx 25% complete for SRR5642554_2.fastq.gz
+Approx 55% complete for SRR5642553_2_val_2.fq.gz
+Approx 35% complete for SRR5642554_2_val_2.fq.gz
+Approx 45% complete for SRR5642553_2.fastq.gz
+Approx 15% complete for SRR5642544_2.fastq.gz
+Approx 10% complete for SRR5642545_2.fastq.gz
+Approx 15% complete for SRR5642545_2_val_2.fq.gz
+Approx 60% complete for SRR5642553_2_val_2.fq.gz
+Approx 25% complete for SRR5642544_2_val_2.fq.gz
+Approx 30% complete for SRR5642554_2.fastq.gz
+Approx 40% complete for SRR5642554_2_val_2.fq.gz
+Approx 50% complete for SRR5642553_2.fastq.gz
+Approx 20% complete for SRR5642544_2.fastq.gz
+Approx 65% complete for SRR5642553_2_val_2.fq.gz
+Approx 15% complete for SRR5642545_2.fastq.gz
+Approx 20% complete for SRR5642545_2_val_2.fq.gz
+Approx 30% complete for SRR5642544_2_val_2.fq.gz
+Approx 35% complete for SRR5642554_2.fastq.gz
+Approx 55% complete for SRR5642553_2.fastq.gz
+Approx 45% complete for SRR5642554_2_val_2.fq.gz
+Approx 70% complete for SRR5642553_2_val_2.fq.gz
+Approx 25% complete for SRR5642544_2.fastq.gz
+Approx 20% complete for SRR5642545_2.fastq.gz
+Approx 35% complete for SRR5642544_2_val_2.fq.gz
+Approx 60% complete for SRR5642553_2.fastq.gz
+Approx 40% complete for SRR5642554_2.fastq.gz
+Approx 25% complete for SRR5642545_2_val_2.fq.gz
+Approx 50% complete for SRR5642554_2_val_2.fq.gz
+Approx 75% complete for SRR5642553_2_val_2.fq.gz
+Approx 30% complete for SRR5642544_2.fastq.gz
+Approx 65% complete for SRR5642553_2.fastq.gz
+Approx 40% complete for SRR5642544_2_val_2.fq.gz
+Approx 55% complete for SRR5642554_2_val_2.fq.gz
+Approx 45% complete for SRR5642554_2.fastq.gz
+Approx 25% complete for SRR5642545_2.fastq.gz
+Approx 80% complete for SRR5642553_2_val_2.fq.gz
+Approx 30% complete for SRR5642545_2_val_2.fq.gz
+Approx 70% complete for SRR5642553_2.fastq.gz
+Approx 35% complete for SRR5642544_2.fastq.gz
+Approx 60% complete for SRR5642554_2_val_2.fq.gz
+Approx 45% complete for SRR5642544_2_val_2.fq.gz
+Approx 50% complete for SRR5642554_2.fastq.gz
+Approx 85% complete for SRR5642553_2_val_2.fq.gz
+Approx 30% complete for SRR5642545_2.fastq.gz
+Approx 35% complete for SRR5642545_2_val_2.fq.gz
+Approx 75% complete for SRR5642553_2.fastq.gz
+Approx 90% complete for SRR5642553_2_val_2.fq.gz
+Approx 65% complete for SRR5642554_2_val_2.fq.gz
+Approx 50% complete for SRR5642544_2_val_2.fq.gz
+Approx 40% complete for SRR5642544_2.fastq.gz
+Approx 55% complete for SRR5642554_2.fastq.gz
+Approx 35% complete for SRR5642545_2.fastq.gz
+Approx 40% complete for SRR5642545_2_val_2.fq.gz
+Approx 80% complete for SRR5642553_2.fastq.gz
+Approx 95% complete for SRR5642553_2_val_2.fq.gz
+Approx 70% complete for SRR5642554_2_val_2.fq.gz
+Approx 60% complete for SRR5642554_2.fastq.gz
+Approx 55% complete for SRR5642544_2_val_2.fq.gz
+Approx 45% complete for SRR5642544_2.fastq.gz
+Approx 85% complete for SRR5642553_2.fastq.gz
+Approx 40% complete for SRR5642545_2.fastq.gz
+Approx 45% complete for SRR5642545_2_val_2.fq.gz
+Approx 75% complete for SRR5642554_2_val_2.fq.gz
+Approx 65% complete for SRR5642554_2.fastq.gz
+Approx 60% complete for SRR5642544_2_val_2.fq.gz
+Approx 90% complete for SRR5642553_2.fastq.gz
+Approx 50% complete for SRR5642544_2.fastq.gz
+Approx 45% complete for SRR5642545_2.fastq.gz
+Approx 80% complete for SRR5642554_2_val_2.fq.gz
+Approx 50% complete for SRR5642545_2_val_2.fq.gz
+Approx 70% complete for SRR5642554_2.fastq.gz
+Approx 65% complete for SRR5642544_2_val_2.fq.gz
+Approx 95% complete for SRR5642553_2.fastq.gz
+Approx 55% complete for SRR5642544_2.fastq.gz
+Approx 85% complete for SRR5642554_2_val_2.fq.gz
+Approx 50% complete for SRR5642545_2.fastq.gz
+Approx 55% complete for SRR5642545_2_val_2.fq.gz
+Approx 75% complete for SRR5642554_2.fastq.gz
+Approx 70% complete for SRR5642544_2_val_2.fq.gz
+Approx 90% complete for SRR5642554_2_val_2.fq.gz
+Approx 60% complete for SRR5642544_2.fastq.gz
+Approx 55% complete for SRR5642545_2.fastq.gz
+Approx 60% complete for SRR5642545_2_val_2.fq.gz
+Approx 80% complete for SRR5642554_2.fastq.gz
+Approx 75% complete for SRR5642544_2_val_2.fq.gz
+Approx 95% complete for SRR5642554_2_val_2.fq.gz
+Approx 65% complete for SRR5642544_2.fastq.gz
+Approx 85% complete for SRR5642554_2.fastq.gz
+Approx 60% complete for SRR5642545_2.fastq.gz
+Approx 65% complete for SRR5642545_2_val_2.fq.gz
+Approx 80% complete for SRR5642544_2_val_2.fq.gz
+Approx 70% complete for SRR5642544_2.fastq.gz
+Approx 90% complete for SRR5642554_2.fastq.gz
+Approx 85% complete for SRR5642544_2_val_2.fq.gz
+Approx 70% complete for SRR5642545_2_val_2.fq.gz
+Approx 65% complete for SRR5642545_2.fastq.gz
+Approx 75% complete for SRR5642544_2.fastq.gz
+Approx 95% complete for SRR5642554_2.fastq.gz
+Approx 90% complete for SRR5642544_2_val_2.fq.gz
+Approx 75% complete for SRR5642545_2_val_2.fq.gz
+Approx 70% complete for SRR5642545_2.fastq.gz
+Approx 80% complete for SRR5642544_2.fastq.gz
+Approx 95% complete for SRR5642544_2_val_2.fq.gz
+Approx 80% complete for SRR5642545_2_val_2.fq.gz
+Approx 75% complete for SRR5642545_2.fastq.gz
+Approx 85% complete for SRR5642544_2.fastq.gz
+Approx 85% complete for SRR5642545_2_val_2.fq.gz
+Approx 80% complete for SRR5642545_2.fastq.gz
+Approx 90% complete for SRR5642544_2.fastq.gz
+Approx 90% complete for SRR5642545_2_val_2.fq.gz
+Approx 85% complete for SRR5642545_2.fastq.gz
+Approx 95% complete for SRR5642544_2.fastq.gz
+Approx 95% complete for SRR5642545_2_val_2.fq.gz
+Approx 90% complete for SRR5642545_2.fastq.gz
+Approx 95% complete for SRR5642545_2.fastq.gz
+MissingOutputException in rule fastqc_trimmed in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 51:
+Job 17  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642561_trimmed_fastqc.html
+results/fastqc/SRR5642561_trimmed_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_raw in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 20:
+Job 6  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642561_raw_fastqc.html
+results/fastqc/SRR5642561_raw_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_raw in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 20:
+Job 5  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642555_raw_fastqc.html
+results/fastqc/SRR5642555_raw_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_raw in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 20:
+Job 3  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642553_raw_fastqc.html
+results/fastqc/SRR5642553_raw_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_trimmed in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 51:
+Job 13  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642554_trimmed_fastqc.html
+results/fastqc/SRR5642554_trimmed_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_raw in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 20:
+Job 4  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642554_raw_fastqc.html
+results/fastqc/SRR5642554_raw_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_trimmed in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 51:
+Job 7  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642544_trimmed_fastqc.html
+results/fastqc/SRR5642544_trimmed_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_raw in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 20:
+Job 1  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642544_raw_fastqc.html
+results/fastqc/SRR5642544_raw_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_trimmed in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 51:
+Job 9  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642545_trimmed_fastqc.html
+results/fastqc/SRR5642545_trimmed_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_raw in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 20:
+Job 2  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642545_raw_fastqc.html
+results/fastqc/SRR5642545_raw_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_trimmed in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 51:
+Job 15  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642555_trimmed_fastqc.html
+results/fastqc/SRR5642555_trimmed_fastqc.zip
+Waiting at most 600 seconds for missing files.
+MissingOutputException in rule fastqc_trimmed in file /scratch/lustre/home/somi9918/AgingIII/snakesnake, line 51:
+Job 11  completed successfully, but some output files are missing. Missing files after 600 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/fastqc/SRR5642553_trimmed_fastqc.html
+results/fastqc/SRR5642553_trimmed_fastqc.zip
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-05-21T193924.026415.snakemake.log

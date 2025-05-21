@@ -54,7 +54,7 @@ rule fastqc_trimmed:
         r2="results/trim_galore/{sample}_2_val_2.fq.gz"
     output:
         html = "results/fastqc/{sample}_trimmed_fastqc.html",
-        zip  = "results/fastqc/{sample}_trimmed_fastqc.zip"
+        zip  = temp("results/fastqc/{sample}_trimmed_fastqc.zip")
     conda:
         "envs/preprocess_rnaseq.yaml"
     shell:
