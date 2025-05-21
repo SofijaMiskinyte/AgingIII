@@ -73,7 +73,7 @@ rule hisat2:
         index=genome_index
     threads: 8
     conda:
-        "envs/samtools.yaml"
+        "envs/preprocess_rnaseq.yaml"
     shell:
         """
         hisat2 -p {threads} -x {params.index} -1 {input.r1_trimmed} -2 {input.r2_trimmed} | \
