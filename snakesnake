@@ -9,7 +9,8 @@ threads = config["threads"]
 rule all:
     input:
         expand("results/fastqc/{sample}_raw_fastqc.html", sample=samples),
-        expand("results/fastqc/{sample}_trimmed_fastqc.html", sample=samples),
+        expand("results/fastqc/{sample}_1_val_1_fastqc.html", sample=samples),
+        expand("results/fastqc/{sample}_2_val_2_fastqc.html", sample=samples),
         #expand("results/trim_galore/{sample}_val_1.fq.gz", sample=samples),
         #expand("results/trim_galore/{sample}_val_2.fq.gz", sample=samples),
         expand("results/hisat2/{sample}.sorted.bam", sample=samples),
@@ -26,11 +27,13 @@ rule fastqc_raw:
     output:
         html = "results/fastqc/{sample}_raw_fastqc.html",
         zip  = "results/fastqc/{sample}_raw_fastqc.zip"
+    log:
+        "logs/fastqc_raw/{sample}.log"    
     conda:
         "envs/preprocess_rnaseq.yaml"
     shell:
         """
-        fastqc {input} --outdir results/fastqc
+        fastqc {input} --outdir results/fastqc &> {log}
         """
 
 rule trim_galore:
@@ -40,11 +43,13 @@ rule trim_galore:
     output:
         r1_trimmed="results/trim_galore/{sample}_1_val_1.fq.gz",
         r2_trimmed="results/trim_galore/{sample}_2_val_2.fq.gz"
+    log:
+        "logs/trim_galore/{sample}.log"    
     conda: "envs/preprocess_rnaseq.yaml"
     threads: 8
     shell:
         """
-        trim_galore --paired {input.r1} {input.r2} -o results/trim_galore
+        trim_galore --paired {input.r1} {input.r2} -o results/trim_galore &> {log}
         """
 
 
@@ -53,13 +58,17 @@ rule fastqc_trimmed:
         r1="results/trim_galore/{sample}_1_val_1.fq.gz",
         r2="results/trim_galore/{sample}_2_val_2.fq.gz"
     output:
-        html = "results/fastqc/{sample}_trimmed_fastqc.html",
-        zip  = temp("results/fastqc/{sample}_trimmed_fastqc.zip")
+        html1 = "results/fastqc/{sample}_1_val_1_fastqc.html",
+        zip1  = "results/fastqc/{sample}_1_val_1_fastqc.zip",
+        html2 = "results/fastqc/{sample}_2_val_2_fastqc.html",
+        zip2  = "results/fastqc/{sample}_2_val_2_fastqc.zip"
+    log:
+        "logs/fastqc_trimmed/{sample}.log"    
     conda:
         "envs/preprocess_rnaseq.yaml"
     shell:
         """
-        fastqc {input.r1} {input.r2} --outdir results/fastqc
+        fastqc {input.r1} {input.r2} --outdir results/fastqc &> {log}
         """
 
 rule hisat2:
@@ -69,6 +78,8 @@ rule hisat2:
     output:
         bam="results/hisat2/{sample}.sorted.bam",
         bai="results/hisat2/{sample}.sorted.bam.bai"
+    log:
+        "logs/hisat2/{sample}.log"    
     params:
         index=genome_index
     threads: 8
@@ -78,7 +89,7 @@ rule hisat2:
         """
         hisat2 -p {threads} -x {params.index} -1 {input.r1_trimmed} -2 {input.r2_trimmed} | \
         samtools view -bS - | \
-        samtools sort -@ {threads} -o {output.bam} -
+        samtools sort -@ {threads} -o {output.bam} - &> {log}
         samtools index {output.bam}
         """
 
@@ -87,6 +98,8 @@ rule featurecounts:
         expand("results/hisat2/{sample}.sorted.bam", sample=samples)
     output:
         "results/counts/count_matrix.txt"
+    log:
+        "logs/featurecounts/count_matrix.log"    
     params:
         gtf=gtf_annotation
     conda:
@@ -94,22 +107,25 @@ rule featurecounts:
     threads: 8
     shell:
         """
-        featureCounts -T {threads} -a {params.gtf} -o {output} {input}
+        featureCounts -T {threads} -p -a {params.gtf} -o {output} {input} &> {log}
         """
 
 rule multiqc:
     input:
         expand("results/fastqc/{sample}_raw_fastqc.html", sample=samples),
-        expand("results/fastqc/{sample}_trimmed_fastqc.html", sample=samples),
+        expand("results/fastqc/{sample}_1_val_1_fastqc.html", sample=samples),
+        expand("results/fastqc/{sample}_2_val_2_fastqc.html", sample=samples),
         #expand("results/trim_galore/{sample}_val_1.fq.gz", sample=samples),
         #expand("results/trim_galore/{sample}_val_2.fq.gz", sample=samples),
         expand("results/hisat2/{sample}.sorted.bam", sample=samples)
     output:
         "results/multiqc/multiqc_report.html"
+    log:
+        "logs/multiqc/multiqc.log"    
     conda:
         "envs/preprocess_rnaseq.yaml"
     shell:
         """
-        multiqc results/ -o results/multiqc
+        multiqc results/ -o results/multiqc &> {log}
         """
 

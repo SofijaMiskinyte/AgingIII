@@ -7,11 +7,11 @@
 #SBATCH -e slurm-%j.err       # Standard error log
 
 # Inicializuojam bash aplinką
-source ~/.bashrc
+source ~/miniconda3/etc/profile.d/conda.sh
 conda activate snakemake
 
 # Atrakinti darbus, jei buvo nutraukti
-snakemake --unlock -s snakesnake
+#snakemake --unlock -s snakesnake
 
 # Paleisti Snakemake su 4 branduoliais ir pakartoti nepilnus darbus
-snakemake -s snakesnake --cores 24 --use-conda --conda-frontend conda --latency-wait 300 --rerun-incomplete --keep-going
+snakemake -s snakesnake --cores 24 --use-conda --conda-frontend conda --latency-wait 1200 --rerun-incomplete --keep-going
