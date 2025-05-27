@@ -21,6 +21,6 @@ samples:
 input_dir: "bioinfo2025/data"
 genome_index: "bioinfo2025/genome/index"
 threads: 8
-gtf_annotation: "bioinfo2025/genome/annotation.gtf"
+gtf_annotation: "bioinfo2025/genome/Mus_musculus.GRCm38.98.chr.gtf"
 
 

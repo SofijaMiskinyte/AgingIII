@@ -91,13 +91,13 @@ rule hisat2:
         "envs/preprocess_rnaseq.yaml"
     shell:
         """
-        hisat2 -p {threads} -x {params.index} -1 {input.r1_trimmed} -2 {input.r2_trimmed} | \
-        samtools view -bS - | \
-        samtools sort -@ {threads} -o {output.bam} - &> {log}
+        hisat2 -p {threads} -x {params.index} -1 {input.r1_trimmed} -2 {input.r2_trimmed} 2> {log} | \
+        samtools view -bS - 2>> {log} | \
+        samtools sort -@ {threads} -o {output.bam} 2>> {log}
         samtools index {output.bam}
         """
-rule sort_bam_by_name:
-    input:
+
+rule sort_bam_by_name:    input:
         "results/hisat2/{sample}.sorted.bam"
     output:
         "results/hisat2/{sample}.namesorted.bam"
