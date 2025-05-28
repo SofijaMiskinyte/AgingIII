@@ -1,0 +1,15 @@
+Status	results/hisat2/SRR5642544.namesorted.bam	results/hisat2/SRR5642545.namesorted.bam	results/hisat2/SRR5642553.namesorted.bam	results/hisat2/SRR5642554.namesorted.bam	results/hisat2/SRR5642555.namesorted.bam	results/hisat2/SRR5642561.namesorted.bam
+Assigned	0	0	0	0	0	0
+Unassigned_Unmapped	14891969	16376891	11376489	13842028	7014366	4429740
+Unassigned_Read_Type	0	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0	0
+Unassigned_MappingQuality	0	0	0	0	0	0
+Unassigned_Chimera	0	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0	0
+Unassigned_Duplicate	0	0	0	0	0	0
+Unassigned_MultiMapping	2981827	3343066	2448192	2581356	1323039	1235330
+Unassigned_Secondary	0	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0	0
+Unassigned_NoFeatures	9034452	9506651	7052246	7998976	4084937	4073276
+Unassigned_Overlapping_Length	0	0	0	0	0	0
+Unassigned_Ambiguity	0	0	0	0	0	0
